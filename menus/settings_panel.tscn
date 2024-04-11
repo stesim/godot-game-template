@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvc7bogv0an0h"]
+
+[ext_resource type="Script" path="res://common/menu_controls/settings_slider.gd" id="1_4mw4d"]
+[ext_resource type="Script" path="res://common/menu_controls/settings_toggle.gd" id="2_ta2lp"]
+
+[node name="settings_panel" type="GridContainer"]
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="master_volume_label" type="Label" parent="."]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master_volume_slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_4mw4d")
+setting = &"master_volume"
+
+[node name="music_volume_label" type="Label" parent="."]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music_volume_slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_4mw4d")
+setting = &"music_volume"
+
+[node name="sfx_volume_label" type="Label" parent="."]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx_volume_slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.5
+script = ExtResource("1_4mw4d")
+setting = &"sfx_volume"
+
+[node name="fullscreen_label" type="Label" parent="."]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="fullscreen_checkbox" type="CheckBox" parent="."]
+layout_mode = 2
+script = ExtResource("2_ta2lp")
+setting = &"fullscreen"

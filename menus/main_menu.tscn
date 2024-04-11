@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://y27qp788puf8"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_6am8f"]
+[ext_resource type="Script" path="res://common/menu_controls/scene_change_button.gd" id="3_4ucw7"]
+[ext_resource type="Script" path="res://common/menu_controls/quit_button.gd" id="4_0qr7d"]
+[ext_resource type="PackedScene" uid="uid://bvc7bogv0an0h" path="res://menus/settings_panel.tscn" id="5_e3g15"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6am8f")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.5
+offset_top = -272.0
+offset_right = 188.5
+offset_bottom = -137.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "Game Title"
+horizontal_alignment = 1
+
+[node name="subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -160.0
+offset_right = 129.5
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Subtitle"
+horizontal_alignment = 1
+
+[node name="button_list" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -74.0
+offset_right = -256.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="play_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Play"
+script = ExtResource("3_4ucw7")
+scene_path = "res://test_game_scene.tscn"
+auto_focus = true
+
+[node name="credits_button" type="Button" parent="button_list"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+text = "Credits"
+
+[node name="quit_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_0qr7d")
+
+[node name="panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.5
+offset_top = -66.5
+offset_right = 402.5
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="settings" parent="panel/margin" instance=ExtResource("5_e3g15")]
+layout_mode = 2
+
+[node name="credits_text_box" type="TextEdit" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Title by X, Y, Z
+
+"
+editable = false

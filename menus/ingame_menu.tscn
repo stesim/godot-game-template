@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy71lmaltr0c2"]
+
+[ext_resource type="Script" path="res://common/menu_controls/overlay_control.gd" id="1_4g4hb"]
+[ext_resource type="PackedScene" uid="uid://bvc7bogv0an0h" path="res://menus/settings_panel.tscn" id="2_n0adi"]
+[ext_resource type="Script" path="res://common/menu_controls/game_menu_button.gd" id="2_tenq7"]
+[ext_resource type="Script" path="res://common/menu_controls/scene_reload_button.gd" id="3_t6r4j"]
+[ext_resource type="Script" path="res://common/menu_controls/scene_change_button.gd" id="4_vo7a6"]
+[ext_resource type="Script" path="res://common/menu_controls/quit_button.gd" id="4_vwfxf"]
+
+[node name="ingame_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4g4hb")
+toggle_action = &"toggle_menu"
+
+[node name="button_list" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -74.0
+offset_right = -256.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="resume_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Resume"
+script = ExtResource("2_tenq7")
+auto_focus = true
+
+[node name="restart_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("3_t6r4j")
+
+[node name="main_menu_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("4_vo7a6")
+scene_path = "res://menus/main_menu.tscn"
+
+[node name="quit_button" type="Button" parent="button_list"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_vwfxf")
+
+[node name="panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -38.0
+offset_right = 383.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin" type="MarginContainer" parent="panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="settings" parent="panel/margin" instance=ExtResource("2_n0adi")]
+layout_mode = 2
+
+[connection signal="pressed" from="button_list/resume_button" to="." method="hide"]
