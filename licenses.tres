@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="LicenseDatabase" load_steps=7 format=3 uid="uid://bpknecicuywvw"]
+
+[ext_resource type="Script" path="res://common/license_management/license_credits_parser.gd" id="1_g6w6s"]
+[ext_resource type="Script" path="res://common/license_management/license_database_entry.gd" id="1_qi4b0"]
+[ext_resource type="Script" path="res://common/license_management/license_database.gd" id="1_uko6g"]
+
+[sub_resource type="Resource" id="Resource_ikpiu"]
+resource_name = "Sketchfab (CC BY 4.0 only)"
+script = ExtResource("1_g6w6s")
+description = "Sketchfab (CC BY 4.0 only)"
+regex = "\"(?<original_name>.+)\" \\((?<source>[^)]+)\\) by (?<author>.+) is licensed under (?<license_cc_by_4>Creative Commons Attribution \\(http:\\/\\/creativecommons\\.org\\/licenses\\/by\\/4\\.0\\/\\))?"
+
+[sub_resource type="Resource" id="Resource_i7dre"]
+resource_name = "Freesound"
+script = ExtResource("1_g6w6s")
+description = "Freesound"
+regex = "(?<original_name>.+) by (?<author>.+) -- (?<source>\\S+) -- License: Attribution (?:(?<license_cc_by_4>4)|(?<license_cc_by_3>3)|.+)?\\.0"
+
+[sub_resource type="Resource" id="Resource_6hfwg"]
+resource_name = "icon.svg"
+script = ExtResource("1_qi4b0")
+asset = "res://icon.svg"
+license = 4
+author = "Andrea Calabró"
+original_name = "Godot Engine Logo"
+category = 2
+description = "Godot Engine Logo"
+source = "https://github.com/godotengine/godot"
+retrieved = "2024-04-11 23:23:20"
+credits = ""
+is_modified = false
+custom_license_name = ""
+custom_license_url = ""
+custom_license_file = ""
+custom_license_text = ""
+
+[resource]
+script = ExtResource("1_uko6g")
+update = false
+entries = Array[ExtResource("1_qi4b0")]([SubResource("Resource_6hfwg")])
+credits_parsers = Array[ExtResource("1_g6w6s")]([SubResource("Resource_ikpiu"), SubResource("Resource_i7dre")])
