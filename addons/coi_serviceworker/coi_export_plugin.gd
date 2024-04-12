@@ -56,5 +56,4 @@ func _export_begin(features : PackedStringArray, _is_debug : bool, path : String
 
 func _export_file(path : String, _type : String, _features : PackedStringArray) -> void:
 	if path.begins_with(_plugin_directory):
-		print(path)
 		skip()
