@@ -33,6 +33,10 @@ window/size/viewport_height=720
 naming/node_name_num_separator=2
 naming/node_name_casing=2
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/coi_serviceworker/plugin.cfg")
+
 [input]
 
 toggle_menu={
